@@ -2,35 +2,48 @@ package org.example;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(rps("scissors", "paper"));
-        System.out.println("result = " + "Player 1 won!");
+        System.out.println(getGrade(95,90,93));
+        System.out.println("result = " + "А");
 
         System.out.println("");
 
-        System.out.println(rps("scissors", "rock"));
-        System.out.println("result = " + "Player 2 won!");
+        System.out.println(getGrade(60,82,76));
+        System.out.println("result = " + "С");
 
         System.out.println("");
 
-        System.out.println(rps("rock", "rock"));
-        System.out.println("result = " + "Draw!");
+        System.out.println(getGrade(1,2,6));
+        System.out.println("result = " + "F");
+
+
+
+//        System.out.println("");
+//
+//        System.out.println(rps("rock", "rock"));
+//        System.out.println("result = " + "Draw!");
 
 
     }
 
-    public static String rps(String p1, String p2) {
+    public static char getGrade(int s1, int s2, int s3) {
 
-        if (p1.equals(p2)) return  "Draw!";
-        if (p1.equals("rock") && p2.equals("scissors")) return  "Player 1 won!";
-        if (p1.equals("scissors") && p2.equals("paper")) return "Player 1 won!";
-        if (p1.equals("paper") && p2.equals("rock")) return "Player 1 won!";
-        else return "Player 2 won!";
+        double average = IntStream.of(s1, s2, s3).average().getAsDouble();
 
+        if (isBetween(average, 90, 101)) return 'A';
+        if (isBetween(average, 80, 90)) return 'B';
+        if (isBetween(average, 70, 80)) return 'C';
+        if (isBetween(average, 60, 70)) return 'D';
+        else return 'F';
 
+    }
+
+    public static boolean isBetween(double x, int lower, int upper) {
+        return lower <= x && x < upper;
     }
 
 

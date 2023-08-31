@@ -813,7 +813,24 @@ public static String rps(String p1, String p2) {
 
 
     }
-	
+
+//Присвоить буквенное соответствие средней оценке
+public static char getGrade(int s1, int s2, int s3) {
+
+        double average = IntStream.of(s1, s2, s3).average().getAsDouble();
+
+        if (isBetween(average, 90, 101)) return 'A';
+        if (isBetween(average, 80, 90)) return 'B';
+        if (isBetween(average, 70, 80)) return 'C';
+        if (isBetween(average, 60, 70)) return 'D';
+        else return 'F';
+
+    }
+
+    public static boolean isBetween(double x, int lower, int upper) {
+        return lower <= x && x < upper;
+    }
+
 
 	
 	
