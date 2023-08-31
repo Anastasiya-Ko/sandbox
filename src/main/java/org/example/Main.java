@@ -1,33 +1,42 @@
 package org.example;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(countBy(1, 10)));
-        System.out.println("result = " + "1,2,3,4,5,6,7,8,9,10");
+        System.out.println(rps("scissors", "paper"));
+        System.out.println("result = " + "Player 1 won!");
 
         System.out.println("");
 
-        System.out.println(Arrays.toString(countBy(2, 5)));
-        System.out.println("result = " + "2,4,6,8,10");
+        System.out.println(rps("scissors", "rock"));
+        System.out.println("result = " + "Player 2 won!");
 
         System.out.println("");
+
+        System.out.println(rps("rock", "rock"));
+        System.out.println("result = " + "Draw!");
 
 
     }
 
-    public static int[] countBy(int x, int n) {
-       int[] arr = new int[n];
+    public static String rps(String p1, String p2) {
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (i+1)*x;
-        }
-        return arr;
+        if (p1.equals(p2)) return  "Draw!";
+        if (p1.equals("rock") && p2.equals("scissors")) return  "Player 1 won!";
+        if (p1.equals("scissors") && p2.equals("paper")) return "Player 1 won!";
+        if (p1.equals("paper") && p2.equals("rock")) return "Player 1 won!";
+        else return "Player 2 won!";
+
+
     }
+
+
 }
-
+/*
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+* */
