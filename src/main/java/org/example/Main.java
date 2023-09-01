@@ -3,41 +3,26 @@ package org.example;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(reverseWords("hello world"));
-        System.out.println("result = " + "world hello");
-//
-//        System.out.println("");
-//
-//        System.out.println(getGrade(60,82,76));
-//        System.out.println("result = " + "С");
-//
-//        System.out.println("");
-//
-//        System.out.println(getGrade(1,2,6));
-//        System.out.println("result = " + "F");
+        System.out.println(doubleChar("123"));
+        System.out.println("result = " + "112233");
 
-
+        System.out.println(" ");
 
 
     }
 
-    public static String reverseWords(String str) {
+    public static String doubleChar(String s) {
 
-//        String temp = "";
-//
-//        String[] arr = str.split(" ");
-//
-//        for (int i = arr.length-1;  i >= 0 ; i--) {
-//
-//            temp = temp + arr[i] + " ";
-//        }
-//
-//        return temp.trim();
-        return Arrays.stream(str.split(" ")).reduce((x, y) -> y + " " + x).get();
-
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            builder.append(s.charAt(i)).append(s.charAt(i));
+        }
+        return builder.toString();
     }
+
 }
